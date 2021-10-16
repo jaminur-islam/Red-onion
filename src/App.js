@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import Nav from "./component/Header/Nav/Nav";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Banner from "./component/Header/Banner/Banner";
+import FoodSection from "./component/Main/FoodSection/FoodSection";
+import { Route, Switch } from "react-router";
+import { BrowserRouter as Router } from "react-router-dom";
+import Breakfast from "./component/Main/Breakfast/Breakfast";
+import Lunch from "./component/Main/Lunch/Lunch";
+import Dinner from "./component/Main/Dinner/Dinner";
 
+// App 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Nav> </Nav>
+          <Banner></Banner>
+        <FoodSection> </FoodSection>
+        <div className='container'> 
+        <Switch>
+            <Route path='/breakfast'>
+              <Breakfast></Breakfast>
+            </Route>
+
+            <Route path='/lunch'>
+              <Lunch></Lunch>
+            </Route>
+
+            <Route path='/dinner'>
+              <Dinner></Dinner>
+            </Route>
+        </Switch>
+        </div>
+
+      </Router>
+       
+
+        
     </div>
   );
 }

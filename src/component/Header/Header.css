@@ -1,0 +1,60 @@
+/* Nav design */
+
+.logo-area img {
+ width: 25%;
+}
+.login-area {
+  width: 200px;
+}
+
+.login-area  button {
+  border: none;
+  background-color: #F7156F;
+  padding:  3px 10px ;
+  border-radius: 10px;
+  color: white;
+}
+.login-area i {
+  font-size: 18px;
+}
+
+
+@media only screen and (max-width: 560px){
+  .nav-container {
+   text-align: center;
+  }
+  .logo-area img {
+    width: 60%;
+    margin-bottom: 20px;
+  }
+
+  .login-area {
+    margin: 0 auto;
+  }
+}
+
+
+
+@media only screen and (min-width: 560px) and (max-width: 992px) {
+  
+ .logo-area img {
+   width: 100%;
+   margin-bottom: 20px;
+
+ }
+
+ .login-area {
+   margin: 0 auto;
+ }
+ .login-area  button {
+  border: none;
+  background-color: #F7156F;
+  padding:  10px 15px ;
+  border-radius: 10px;
+  color: white;
+}
+
+.login-area i {
+  font-size: 25px;
+}
+}
