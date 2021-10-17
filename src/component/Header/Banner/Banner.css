@@ -2,13 +2,16 @@
 
 .banner {
   margin-top: 10px;
-  height: 400px;
   width: 100%;
+  height: 520px;
   background: url('../../../logoBannar/bannerbackground.png') no-repeat;
   background-size: cover;
-  position: center center;
+  background-position: center center;
  
 }
+
+
+
 .banner-heading{
   width: 100%;
   height: 200px;

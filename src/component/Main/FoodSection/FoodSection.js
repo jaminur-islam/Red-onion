@@ -1,15 +1,27 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import './Food.css'
+import { Tab , Tabs } from "react-bootstrap";
+import Breakfast from "../Breakfast/Breakfast";
+import Dinner from "../Dinner/Dinner";
+import Lunch from "../Lunch/Lunch";
 
 const FoodSection = () => {
   return (
-    <div className='food-nav-bar container mt-4'>
-      <ul>      
-       <NavLink activeStyle={{color: 'red'}} to='/breakfast'> <li>Breakfast </li></NavLink>
-       <Link to='/lunch'>   <li>Lunch</li> </Link>
-       <Link to='/dinner'> <li>Dinner</li> </Link>
-       </ul>
+    <div className='container'>
+    <Tabs defaultActiveKey="Breakfast" id="uncontrolled-tab-example" className="mb-3">
+
+    <Tab eventKey="Breakfast" title="Breakfast">
+       <Breakfast> </Breakfast>
+      </Tab>
+      
+      <Tab eventKey="Lunch" title="Lunch">
+      <Lunch> </Lunch>
+      </Tab>
+
+     <Tab eventKey="Dinner" title="Dinner">
+       <Dinner> </Dinner>
+     </Tab>
+
+   
+</Tabs>
     </div>
   );
 };

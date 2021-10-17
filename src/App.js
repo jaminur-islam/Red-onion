@@ -2,41 +2,46 @@ import Nav from "./component/Header/Nav/Nav";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Banner from "./component/Header/Banner/Banner";
 import FoodSection from "./component/Main/FoodSection/FoodSection";
-import { Route, Switch } from "react-router";
-import { BrowserRouter as Router } from "react-router-dom";
-import Breakfast from "./component/Main/Breakfast/Breakfast";
-import Lunch from "./component/Main/Lunch/Lunch";
-import Dinner from "./component/Main/Dinner/Dinner";
+import { BrowserRouter as Router , Switch , Route } from "react-router-dom";
+import Login from "./component/Login/Login";
+import ContextProvider from "./context/ContextProvider";
+import SignUp from "./component/SignUP/SignUp";
 
 // App 
 function App() {
   return (
-    <div>
-      <Router>
-        <Nav> </Nav>
-          <Banner></Banner>
-        <FoodSection> </FoodSection>
-        <div className='container'> 
-        <Switch>
-            <Route path='/breakfast'>
-              <Breakfast></Breakfast>
+  <ContextProvider>  
+
+     <Router> 
+        <Switch> 
+            
+            <Route path='/home'>
+                 <Nav> </Nav>
+                    <Banner></Banner>
+                 <FoodSection> </FoodSection>
             </Route>
 
-            <Route path='/lunch'>
-              <Lunch></Lunch>
+            <Route exact path='/'>
+                 <Nav> </Nav>
+                    <Banner></Banner>
+                 <FoodSection> </FoodSection>
             </Route>
 
-            <Route path='/dinner'>
-              <Dinner></Dinner>
+            <Route path='/login'>
+              <Login> </Login>
             </Route>
+
+            <Route path='/signup'>
+              <SignUp> </SignUp>
+            </Route>
+
         </Switch>
-        </div>
+     </Router>
 
-      </Router>
+
+ </ContextProvider>
        
-
-        
-    </div>
+           
   );
 }
 

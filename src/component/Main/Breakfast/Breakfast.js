@@ -12,10 +12,10 @@ const Breakfast = () => {
     <div className='row mt-2'>
       {
         breakfastFoods.map(breakfastFood => {
-          const {name , img , dream , price} = breakfastFood; 
+          const {id ,name , img , dream , price} = breakfastFood; 
           
          return(
-           <div className='col-lg-4 col-md-6 col-12 text-center'>
+           <div key={id} className='col-lg-4 col-md-6 col-12 text-center'>
              <div className='border m-4 p-4 foodCard'>
                <img width='150' src={img} alt="" />
                <h6 className='mt-2'> {name}</h6>
