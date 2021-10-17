@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import useFoodData from '../../../Hooks/useFoodData';
 
 const Lunch = () => {
@@ -6,14 +7,19 @@ const Lunch = () => {
    
   const breakfastFoods = foods.filter(fd => fd.food === 'lunch');
 
+  const history = useHistory();
+  const getId = () =>{
+    history.push('/section');
+  }
+
   return (
-    <div className='row mt-2' id='lunch'>
+    <div className='row mt-2'>
       {
         breakfastFoods.map(breakfastFood => {
           const {id ,name , img , dream , price} = breakfastFood; 
           
          return(
-           <div key={id} className='col-lg-4 col-md-6 col-12 text-center'>
+           <div onClick={getId} key={id} className='col-lg-4 col-md-6 col-12 text-center'>
              <div className='border m-4 p-4 foodCard'>
                <img width='150' src={img} alt="" />
                <h6 className='mt-2'> {name}</h6>

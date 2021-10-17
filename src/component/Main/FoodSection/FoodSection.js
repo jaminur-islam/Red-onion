@@ -1,4 +1,5 @@
 import { Tab , Tabs } from "react-bootstrap";
+import Section from "../../Section/Section";
 import Breakfast from "../Breakfast/Breakfast";
 import Dinner from "../Dinner/Dinner";
 import Lunch from "../Lunch/Lunch";
@@ -18,6 +19,10 @@ const FoodSection = () => {
 
      <Tab eventKey="Dinner" title="Dinner">
        <Dinner> </Dinner>
+     </Tab>
+
+     <Tab eventKey="Details" title="Details">
+       <Section> </Section>
      </Tab>
 
    

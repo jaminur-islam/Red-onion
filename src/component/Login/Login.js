@@ -1,26 +1,64 @@
 import Button from '@restart/ui/esm/Button';
-import React from 'react';
+import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import './Login.css'
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import initAuthentication from '../../Firebase/firebaseInit';
+initAuthentication();
+
+// auth 
+const auth  = getAuth();
+
 
 const Login = () => {
   const { googlesign , facebookSign , githubSign } = useAuth();
+
+ 
+  
+  // email State 
+  const [email ,setEmail] = useState('');
+
+  // pass state 
+  const [password , setPassword] = useState('');
+  
+
+
+
+  //Email 
+  const getEmail = (e) => {
+   setEmail(e.target.value)
+  }
+
+  // password
+  const getPassword = (e) =>{
+    setPassword(e.target.value);
+  }
+
+  // submitHandle
+  const submitHandle =(e) =>{
+      e.preventDefault();
+      signInWithEmailAndPassword(auth , email , password)
+    .then((userCredential)=> {
+      console.log(userCredential.user)
+    })
+  }
+
   return (
     <div className='login-section'>
       <h3 className='text-center text-primary'>Log in your account </h3>
       <hr style={{width: '250px' , margin: '0 auto'}} />
 
-  <Form className='container w-25 mt-2'>
+  <Form onSubmit={submitHandle} className='container w-25 mt-2'>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" />
+    <Form.Control onBlur={getEmail} type="email" placeholder="Enter email" />
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicPassword">
     <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
+    <Form.Control onBlur={getPassword} type="password" placeholder="Password" />
   </Form.Group>
   
   <Button className='btn btn-primary' type="submit">
@@ -37,7 +75,7 @@ const Login = () => {
       <br />
 
   {/* google */}
-      <button onClick={googlesign} className='px-5 py-2 mt-3 bg-success rounded text-white border-0'> <i class="fab fa-google text-danger me-3 bg-primary py-2 px-2"></i> Continue with Google </button>
+      <button onClick={googlesign} className='px-5 py-2 mt-3 bg-success rounded text-white border-0'> <i className="fab fa-google text-danger me-3 bg-primary py-2 px-2"></i> Continue with Google </button>
       <br />
   {/*github  */}
       <button onClick={githubSign} className='px-5 mt-2 py-2 mt-3 bg-black rounded text-white border-0'> <i className="fab fa-github me-3 px-2  py-2"></i> Continue with Github </button>

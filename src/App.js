@@ -6,6 +6,7 @@ import { BrowserRouter as Router , Switch , Route } from "react-router-dom";
 import Login from "./component/Login/Login";
 import ContextProvider from "./context/ContextProvider";
 import SignUp from "./component/SignUP/SignUp";
+import Section from "./component/Section/Section";
 
 // App 
 function App() {
@@ -25,6 +26,10 @@ function App() {
                  <Nav> </Nav>
                     <Banner></Banner>
                  <FoodSection> </FoodSection>
+            </Route>
+
+            <Route path='/section'>
+            <Section> </Section>
             </Route>
 
             <Route path='/login'>

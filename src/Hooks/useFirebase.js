@@ -1,7 +1,6 @@
 import initAuthentication from "../Firebase/firebaseInit";
-import { getAuth, signInWithPopup, GoogleAuthProvider , onAuthStateChanged , signOut , FacebookAuthProvider , GithubAuthProvider} from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider , onAuthStateChanged , signOut , FacebookAuthProvider , GithubAuthProvider ,  createUserWithEmailAndPassword} from "firebase/auth";
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router";
 initAuthentication();
 
 
@@ -48,6 +47,13 @@ const logOut = () =>{
   })
 }
 
+
+// create Provider 
+const create = () =>{
+  return  createUserWithEmailAndPassword
+}
+
+
 // important onstateChange
 useEffect(()=>{
 const unsubscribed =  onAuthStateChanged(auth , (user)=>{
@@ -61,7 +67,7 @@ const unsubscribed =  onAuthStateChanged(auth , (user)=>{
 },[])
 
 
-return {googlesign , logOut , user , facebookSign , githubSign}
+return {googlesign , logOut , user , facebookSign , githubSign , create , auth}
 
 }
 
